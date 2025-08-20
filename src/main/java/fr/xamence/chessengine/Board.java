@@ -25,9 +25,10 @@ public class Board {
 
     public boolean isValidMove(Move move) {
 
+        if (isInSameTeam(move.getPiece(), move.getCapturedPiece()))
+            return false;
 
-
-        return true;
+        return move.getPiece().isValidMove(move);
     }
 
     public void makeMove(Move move) {
@@ -35,6 +36,9 @@ public class Board {
 
         movedPiece.setColumn(move.getNewColumn());
         movedPiece.setRow(move.getNewRow());
+
+        if (move.getCapturedPiece() != null)
+            applyCapture(move);
     }
 
     public void applyCapture(Move move) {

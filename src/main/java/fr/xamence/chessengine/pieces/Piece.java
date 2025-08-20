@@ -1,6 +1,7 @@
 package fr.xamence.chessengine.pieces;
 
 import fr.xamence.chessengine.Board;
+import fr.xamence.chessengine.Move;
 
 public abstract class Piece {
 
@@ -49,6 +50,6 @@ public abstract class Piece {
         return board;
     }
 
-    public abstract boolean
+    public abstract boolean isValidMove(Move move);
 
 }
